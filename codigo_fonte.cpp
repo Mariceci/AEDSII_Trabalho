@@ -22,6 +22,30 @@ int main(){
 	if (respMenu==4){
 		
 	}
+	if (respMenu==5){
+		
+	}
+	if (respMenu==6){
+		
+	}
+	if (respMenu==7){
+		
+	}
+	if (respMenu==8){
+		
+	}
+	if (respMenu==9){
+		
+	}
+	if (respMenu==10){
+		
+	}
+	if (respMenu==11){
+		
+	}
+	if (respMenu==12){
+		
+	}
     if (respMenu==0){
         break;
         }
