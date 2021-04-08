@@ -83,6 +83,9 @@ int main(){
 		
 	}
 	if (respMenu==12){
+		if(receberP!=0){
+			cout<< //Clientes
+		}
 		
 	}
     if (respMenu==0){
