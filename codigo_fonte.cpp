@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 using namespace std;
+
 struct Cliente {
 	string nome;
 	string endereco;
@@ -10,21 +11,26 @@ void imprimir (){
 	cout<<" "<<endl;
 }
 int main(){
-    int respMenu;
-    Cliente C;
+    int respMenu,Som=0;
+    Cliente c[1000];
     
     for (;;){
-    cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia jÃ¡ paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores";
+    	system ("cls");
+    cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia jÃ¡ paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
     cin >>respMenu;
     if (respMenu==1){
-        cout<< "Digite o nome do cliente: ";
-        cin >>
-        cout<< "Digite o endereço do cliente: ";
-        cin >>
-        cout<< "Digite o telefone do cliente: ";
-        cin >>
-        system("pause");
+    	for (int i=0;i==0;i++){
+    		cout<< "Digite o nome do cliente: ";
+        	cin >> c[Som].nome;
+        	cout<< "Digite o endereço do cliente: ";
+        	cin >> c[Som].endereco;
+        	cout<< "Digite o telefone do cliente: ";
+        	cin >>c[Som].telefone;
+        	cout<< "Cliente cadastrado com sucesso!! ";
+        	system("pause");
+        	Som++;
         }
+    }
     if (respMenu==2){
     	
 	}
