@@ -6,7 +6,6 @@ struct Cliente {
 	string endereco;
 	int telefone;
 };
-
 int main(){
     int respMenu;
     Cliente C;
