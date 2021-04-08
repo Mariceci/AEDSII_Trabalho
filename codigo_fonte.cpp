@@ -33,30 +33,33 @@ int main(){
         cout<< "Digite o endereco do cliente: ";
         cin >> c[Som1].endereco;
         cout<< "Digite o telefone do cliente: ";
-        cin >>c[Som1].telefone;
+        cin >> c[Som1].telefone;
         cout<< "Cliente cadastrado com sucesso!! ";
         system("pause");
         Som1++;
     }
     if (respMenu==2){
     	cout<< "Digite o nome do Projeto: ";
-        cin >> c[Som2].nomeP;
+        cin >> p[Som2].nomeP;
         cout<< "Digite a data inicial do projeto: ";
-        cin >> c[Som2].dataInicialP;
+        cin >> p[Som2].dataInicialP;
         cout<< "Digite a data final do projeto: ";
-        cin >>c[Som2].dataFinalP;
+        cin >> p[Som2].dataFinalP;
 		cout<< "Digite o preco do projeto: ";
-        cin >>c[Som2].precoP;
+        cin >> p[Som2].precoP;
 		cout<< "Digite valor ja pago do projeto: ";
-        cin >>c[Som2].pagoP;
+        cin >> p[Som2].pagoP;
 		cout<< "Digite valor a receber do projeto: ";
-        cin >>c[Som2].receberP;
+        cin >> p[Som2].receberP;
         cout<< "Projeto cadastrado com sucesso!! ";
         system("pause");
         Som2++;  	
 	}
 	if (respMenu==3){
-		
+		for (int i=0; i<Som1;i++){
+			cout<< " Nome: " << c[i].nome << "\n Endereco: " << c[i].endereco << "\n Telefone: "<< c[i].telefone << endl << endl;
+		}
+		system("pause");
 	}
 	if (respMenu==4){
 		
@@ -83,9 +86,9 @@ int main(){
 		
 	}
 	if (respMenu==12){
-		if(receberP!=0){
-			cout<< //Clientes
-		}
+		//if(receberP!=0){
+			//cout<< //Clientes
+		//}
 		
 	}
     if (respMenu==0){
