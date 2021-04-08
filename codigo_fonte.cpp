@@ -6,9 +6,9 @@ struct Projeto{
 	string nomeP;
 	string dataInicialP;
 	string dataFinalP;
-	string precoP;
-	string pagoP;
-	string receberP;
+	float precoP;
+	float pagoP;
+	float receberP;
 }
 struct Cliente {
 	string nome;
