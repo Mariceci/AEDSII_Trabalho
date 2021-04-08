@@ -62,6 +62,10 @@ int main(){
 		system("pause");
 	}
 	if (respMenu==4){
+		for (int i=0; i<Som2;i++){
+			cout<< " Nome: " << p[i].nomeP << "\n Data Inicial: " << p[i].dataInicialP << "\n Data Final: "<< p[i].dataFinalP <<"\n Preco Total: "<< p[i].precoP <<"\n Preco a pagar: "<< p[i].pagoP << "\n Preco a receber: "<<p[i].receberP<< endl << endl;
+		}
+		system("pause");
 		
 	}
 	if (respMenu==5){
