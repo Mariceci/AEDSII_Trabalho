@@ -6,6 +6,9 @@ struct Cliente {
 	string endereco;
 	int telefone;
 };
+void imprimir (){
+	cout<<" "<<endl;
+}
 int main(){
     int respMenu;
     Cliente C;
