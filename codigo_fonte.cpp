@@ -56,12 +56,14 @@ int main(){
         Som2++;  	
 	}
 	if (respMenu==3){
+		cout<<"Lista de Clientes"<<endl;
 		for (int i=0; i<Som1;i++){
 			cout<< " Nome: " << c[i].nome << "\n Endereco: " << c[i].endereco << "\n Telefone: "<< c[i].telefone << endl << endl;
 		}
 		system("pause");
 	}
 	if (respMenu==4){
+		cout<<"Lista de Projetos"<<endl;
 		for (int i=0; i<Som2;i++){
 			cout<< " Nome: " << p[i].nomeP << "\n Data Inicial: " << p[i].dataInicialP << "\n Data Final: "<< p[i].dataFinalP <<"\n Preco Total: "<< p[i].precoP <<"\n Preco a pagar: "<< p[i].pagoP << "\n Preco a receber: "<<p[i].receberP<< endl << endl;
 		}
