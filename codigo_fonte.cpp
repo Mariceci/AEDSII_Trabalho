@@ -55,9 +55,6 @@ int main(){
         system("pause");
         Som2++;  	
 	}
-	if (respMenu==2){
-		
-	}
 	if (respMenu==3){
 		
 	}
