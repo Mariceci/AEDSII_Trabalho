@@ -40,17 +40,20 @@ int main(){
     }
     if (respMenu==2){
     	cout<< "Digite o nome do Projeto: ";
-        cin >> c[Som2].nome;
-        cout<< "Digite a data de iniciação do projeto: ";
-        cin >> c[Som2].endereco;
-        cout<< "Digite o telefone do cliente: ";
-        cin >>c[Som2].telefone;
-        cout<< "Cliente cadastrado com sucesso!! ";
+        cin >> c[Som2].nomeP;
+        cout<< "Digite a data inicial do projeto: ";
+        cin >> c[Som2].dataInicialP;
+        cout<< "Digite a data final do projeto: ";
+        cin >>c[Som2].dataFinalP;
+		cout<< "Digite o preco do projeto: ";
+        cin >>c[Som2].precoP;
+		cout<< "Digite valor ja pago do projeto: ";
+        cin >>c[Som2].pagoP;
+		cout<< "Digite valor a receber do projeto: ";
+        cin >>c[Som2].receberP;
+        cout<< "Projeto cadastrado com sucesso!! ";
         system("pause");
-        Som2++;
-    	
-
-    	
+        Som2++;  	
 	}
 	if (respMenu==2){
 		
