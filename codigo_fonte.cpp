@@ -14,6 +14,7 @@ struct Cliente {
 	string nome;
 	string endereco;
 	int telefone;
+	Projeto proje;
 };
 void imprimir (){
 	cout<<" "<<endl;
