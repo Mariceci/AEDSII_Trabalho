@@ -3,16 +3,16 @@
 using namespace std;
 
 struct Projeto{
-	char nomeP[200];
-	char dataInicialP[200];
-	char dataFinalP[200];
+	string nomeP;
+	string dataInicialP;
+	string dataFinalP;
 	float precoP;
 	float pagoP;
 	float receberP;
 };
 struct Cliente {
-	char nome[200];
-	char endereco[200];
+	string nome;
+	string endereco;
 	int telefone;
 	Projeto proje;
 };
@@ -33,29 +33,29 @@ int main(){
     	cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia jÃ¡ paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
     	cin >>respMenu;
     	if (respMenu==1){
-    	cout<< "Digite o nome do cliente: ";
+    	cout<< "Digite o nome do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som1].nome;
-        cout<< "Digite o endereco do cliente: ";
+        cout<< "Digite o endereco do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som1].endereco;
-        cout<< "Digite o telefone do cliente: ";
+        cout<< "Digite o telefone do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som1].telefone;
         cout<< "Cliente cadastrado com sucesso!! ";
         system("pause");
         Som1++;
     }
     if (respMenu==2){
-    	cout << "Digite o nome do cliente que você quer inserir um nome projeto: ";
+    	cout << "Digite o nome do cliente que voce quer inserir um novo projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
     	cin >> Nc;
     	
-    	cout<< "Digite o nome do Projeto: ";
+    	cout<< "Digite o nome do Projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som2].proje.nomeP;
-        cout<< "Digite a data inicial do projeto: ";
+        cout<< "Digite a data inicial do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som2].proje.dataInicialP;
-        cout<< "Digite a data final do projeto: ";
+        cout<< "Digite a data final do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som2].proje.dataFinalP;
-		cout<< "Digite o preco do projeto: ";
+		cout<< "Digite o preco do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som2].proje.precoP;
-		cout<< "Digite valor ja pago do projeto: ";
+		cout<< "Digite valor ja pago do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
         cin >> c[Som2].proje.pagoP;
 		c[Som2].proje.receberP= c[Som2].proje.precoP- c[Som2].proje.pagoP;
         cout<< "Projeto cadastrado com sucesso!! ";
