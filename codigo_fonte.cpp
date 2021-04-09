@@ -3,31 +3,36 @@
 using namespace std;
 
 struct Projeto{
-	string nomeP;
-	string dataInicialP;
-	string dataFinalP;
+	char nomeP[200];
+	char dataInicialP[200];
+	char dataFinalP[200];
 	float precoP;
 	float pagoP;
 	float receberP;
 };
 struct Cliente {
-	string nome;
-	string endereco;
+	char nome[200];
+	char endereco[200];
 	int telefone;
 	Projeto proje;
 };
+
+/*void Busca Cliente (Cliente c; Sum1;nome;){
+	for ()
+}*/
+
 void imprimir (){
 	cout<<" "<<endl;
 }
 int main(){
     int respMenu,Som1=0,Som2=0;
+    string Nc;
     Cliente c[1000];
-    Projeto p[1000];
-    for (;;){
+   for (;;){
     	system ("cls");
-    cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia já paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
-    cin >>respMenu;
-    if (respMenu==1){
+    	cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia já paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
+    	cin >>respMenu;
+    	if (respMenu==1){
     	cout<< "Digite o nome do cliente: ";
         cin >> c[Som1].nome;
         cout<< "Digite o endereco do cliente: ";
@@ -39,18 +44,20 @@ int main(){
         Som1++;
     }
     if (respMenu==2){
+    	cout << "Digite o nome do cliente que voc� quer inserir um nome projeto: ";
+    	cin >> Nc;
+    	
     	cout<< "Digite o nome do Projeto: ";
-        cin >> p[Som2].nomeP;
+        cin >> c[Som2].proje.nomeP;
         cout<< "Digite a data inicial do projeto: ";
-        cin >> p[Som2].dataInicialP;
+        cin >> c[Som2].proje.dataInicialP;
         cout<< "Digite a data final do projeto: ";
-        cin >> p[Som2].dataFinalP;
+        cin >> c[Som2].proje.dataFinalP;
 		cout<< "Digite o preco do projeto: ";
-        cin >> p[Som2].precoP;
+        cin >> c[Som2].proje.precoP;
 		cout<< "Digite valor ja pago do projeto: ";
-        cin >> p[Som2].pagoP;
-		cout<< "Digite valor a receber do projeto: ";
-        cin >> p[Som2].receberP;
+        cin >> c[Som2].proje.pagoP;
+		c[Som2].proje.receberP= c[Som2].proje.precoP- c[Som2].proje.pagoP;
         cout<< "Projeto cadastrado com sucesso!! ";
         system("pause");
         Som2++;  	
@@ -65,7 +72,7 @@ int main(){
 	if (respMenu==4){
 		cout<<"Lista de Projetos"<<endl;
 		for (int i=0; i<Som2;i++){
-			cout<< " Nome: " << p[i].nomeP << "\n Data Inicial: " << p[i].dataInicialP << "\n Data Final: "<< p[i].dataFinalP <<"\n Preco Total: "<< p[i].precoP <<"\n Preco a pagar: "<< p[i].pagoP << "\n Preco a receber: "<<p[i].receberP<< endl << endl;
+			cout<< " Nome: " <<  c[i].proje.nomeP << "\n Data Inicial: " << c[i].proje.dataInicialP << "\n Data Final: "<< c[i].proje.dataFinalP <<"\n Preco Total: "<< c[i].proje.precoP <<"\n Preco a pagar: "<< c[i].proje.pagoP << "\n Preco a receber: "<<c[i].proje.receberP<< endl << endl;
 		}
 		system("pause");
 		
