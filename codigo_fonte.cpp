@@ -52,21 +52,24 @@ no *busca(arvore r, string k){
 void erd(arvore r){
     if(r!=NULL){
         erd(r->esq);
-        cout <<r->nome<<" - ";
+        cout <<r->nome<<endl;
         erd(r->dir);
     }
 }
 
-void erd2(arvore r){
+void erd2(arvore r){ //Pessoas que tem projetos cadastrados
     if(r!=NULL){
         erd(r->esq);
-        cout <<r->proje.nomeP<<" - ";
+        cout <<r->proje.nomeP<<endl;
         erd(r->dir);
     }
 }
 
-void imprimir (){
-	cout<<" "<<endl;
+
+void imprimir (arvore r){
+	if (r->dir!=NULL && r->esq!=NULL){
+		cout <<r->proje.nomeP<<endl;
+	}
 }
 
 int main(){
@@ -82,30 +85,31 @@ int main(){
     	if (respMenu==1){
 	    	cout<< "Digite o nome do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
 	        cin >> nome;
-	        cout<< "Digite o endereco do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
+	        cout<< "Digite o endereco do cliente\nUtilize Underline(EX:Bairro_Rua): ";
 	        cin >> ende;
-	        cout<< "Digite o telefone do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
+	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
 	        cin >> tel;
 	        cout<< "Cliente cadastrado com sucesso!! ";
 	        inserir (r,nome,tel,ende);	        
 	        system("pause");
     	}
    		if (respMenu==2){
+   			erd(r);
 	    	cout << "Digite o nome do cliente que voce quer inserir um novo projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
 	    	cin >> b;
 	    	arvore c = busca(r,b);
 	    	if(c==NULL)
       	    	 cout<<endl<<"Nao encontrado";
     		else{
-	       	 	cout<< "Digite o nome do Projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
+	       	 	cout<< "Digite o nome do Projeto\nUtilize Underline(EX:Nome_Complemento): ";
 		        cin >> c->proje.nomeP;
-		        cout<< "Digite a data inicial do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
+		        cout<< "Digite a data inicial do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
 		        cin >> c->proje.dataInicialP;
-		        cout<< "Digite a data final do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
+		        cout<< "Digite a data final do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
 		        cin >> c->proje.dataFinalP;
-				cout<< "Digite o preco do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
+				cout<< "Digite o preco do projeto: ";
 		        cin >> c->proje.precoP;
-				cout<< "Digite valor ja pago do projeto\nUtilize Underline(EX:Nome_Sobrenome): ";
+				cout<< "Digite valor ja pago do projeto: ";
 		        cin >> c->proje.pagoP;
 				c->proje.receberP= c->proje.precoP - c->proje.pagoP;
 		        cout<< "Projeto cadastrado com sucesso!! ";
@@ -119,7 +123,7 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
-			erd2(r);
+			imprimir(r);
 			system("pause");	
 		}
 		if (respMenu==5){
