@@ -77,7 +77,7 @@ int main(){
 	arvore r;
 	r = NULL;
     int respMenu,Som2=0,tel;
-    string nome,ende,b;
+    string nome,ende,b,c,d;
   	for (;;){
     	system ("cls");
     	cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia ja paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
@@ -123,17 +123,35 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
-			imprimir(r);
-			system("pause");	
+			for(int i=0;i<30;i++){
+				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
+			}
+			system("pause");		
 		}
 		if (respMenu==5){
 		
 		}
 		if (respMenu==6){
-		
+			cout << "Digite o nome do cliente que voce quer saber quanto ele tem a pagar:"<<endl;
+			cin >> c;
+			cout<<"Ele precisa pagar a quantia de: ";
+			for (int i=0; i<30;i++){
+		       	if( c== p[i].nomeP ){
+	      	    	 cout<<p[i].receberP<<" "<<endl;
+	    		 	}
+			}
+			system("pause");
 		}
 		if (respMenu==7){
-			
+				cout << "Digite o nome do cliente que voce quer saber quanto ele ja pagou:"<<endl;
+			cin >> d;
+			cout<<"Ele ja pagau a quantia de: ";
+			for (int i=0; i<30;i++){
+		       	if(d ==p[i].nomeP){
+	      	    	 cout<<p[i].pagoP<<" "<<endl;
+	    		 	}
+			}
+			system("pause");
 		}
 		if (respMenu==8){
 			
