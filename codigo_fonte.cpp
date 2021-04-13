@@ -190,6 +190,17 @@ int main(){
 			*/
 		}
 		if (respMenu==11){
+			string comparaNome;
+			cout << "Digite o nome do cliente que voce quer remover:"<<endl; // testar
+			cin >> comparaNome; // testar
+			for (int i=0; i<30;i++){ // testar
+		       	if( p[i].nome== comparaNome ){ // testar
+	      	    	delete p[i].nome; // testar
+	      			cout<<"Cliente removido!"<<endl; // testar
+	    		 	}
+			}
+			system("pause");
+			
 
 		}
 		if (respMenu==12){
