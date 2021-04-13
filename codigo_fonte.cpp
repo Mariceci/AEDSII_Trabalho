@@ -3,6 +3,7 @@
 using namespace std;
 
 struct Projeto{
+	string Pessoa;
 	string nomeP;
 	string dataInicialP;
 	string dataFinalP;
@@ -18,7 +19,7 @@ struct Cliente {
 	struct Cliente *esq;
     struct Cliente *dir;
 };
-
+Projeto p[30];
 typedef struct Cliente no;
 typedef no *arvore;
 
@@ -41,6 +42,31 @@ void inserir (arvore &r, string Nome , int Tel, string end){
    }
 }
 
+void salvarlista(struct a,struct b,struct c,struct d,int e,int f){
+	int cont=0
+	for(int i=0;i<30;i++){
+		if (cont!=0){
+			p[cont].Pessoa = a;
+			p[cont].nomeP = b;
+			p[cont].dataInicialP = c;
+			p[cont].dataFinalP = d;
+			p[cont].precoP = e;
+			p[cont].pagoP = f;
+			p[cont].receberP = e-f;
+			cont++;
+		}
+		else {
+			p[i].Pessoa = a;
+			p[i].nomeP = b;
+			p[i].dataInicialP = c;
+			p[i].dataFinalP = d;
+			p[i].precoP = e;
+			p[i].pagoP = f;
+			p[i].receberP = e-f;
+		}
+	}
+}
+
 no *busca(arvore r, string k){
     if(r==NULL ||r->nome==k)
         return r;
@@ -57,23 +83,9 @@ void erd(arvore r){
     }
 }
 
-void erd2(arvore r){ //Pessoas que tem projetos cadastrados
-    if(r!=NULL){
-        erd(r->esq);
-        cout <<r->proje.nomeP<<endl;
-        erd(r->dir);
-    }
-}
 
-
-void imprimir (arvore r){
-	if (r->dir!=NULL && r->esq!=NULL){
-		cout <<r->proje.nomeP<<endl;
-	}
-}
 
 int main(){
-	Projeto p[30];
 	arvore r;
 	r = NULL;
     int respMenu,Som2=0,tel;
@@ -113,6 +125,7 @@ int main(){
 		        cin >> c->proje.pagoP;
 				c->proje.receberP= c->proje.precoP - c->proje.pagoP;
 		        cout<< "Projeto cadastrado com sucesso!! ";
+		        salvarlista(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP)
 		        system("pause"); 
      		} 	
 		}
