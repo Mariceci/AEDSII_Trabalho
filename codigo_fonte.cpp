@@ -142,6 +142,10 @@ int main(){
 			system("pause");		
 		}
 		if (respMenu==5){
+			for(int i=0;i<30;i++){ // testar
+				erd(r); // testar
+				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
+			}	
 		
 		}
 		if (respMenu==6){
@@ -156,7 +160,7 @@ int main(){
 			system("pause");
 		}
 		if (respMenu==7){
-				cout << "Digite o nome do cliente que voce quer saber quanto ele ja pagou:"<<endl;
+			cout << "Digite o nome do cliente que voce quer saber quanto ele ja pagou:"<<endl;
 			cin >> d;
 			cout<<"Ele ja pagau a quantia de: ";
 			for (int i=0; i<30;i++){
@@ -173,10 +177,20 @@ int main(){
 			
 		}
 		if (respMenu==10){
+/*			string comparaNomeP;
+			cout << "Digite o nome do projeto que voce quer remover:"<<endl;
+			cin >> comparaNomeP;
+			for (int i=0; i<30;i++){
+		       	if( p[i].nomeP== comparaNomeP ){
+	      	    	remove_p[i].nomeP;
+	    		 	}
+			}
+			system("pause");
 			
+			*/
 		}
 		if (respMenu==11){
-			
+
 		}
 		if (respMenu==12){
 			//if(receberP!=0){
