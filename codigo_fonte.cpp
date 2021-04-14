@@ -11,13 +11,13 @@ struct Projeto{
 	float precoP;
 	float pagoP;
 	float receberP;
+	int cod;
 };
 struct Cliente {
 	string nome;
 	string endereco;
 	int CPF;
 	int telefone;
-	Projeto proje;
 	struct Cliente *esq;
     struct Cliente *dir;
 };
@@ -53,7 +53,8 @@ void salva (string a,string b,string c,string d,int e,int f,int g){
 	p[g].dataFinalP=d;
 	p[g].precoP=e;
 	p[g].pagoP=f;
-	p[g].receberP=e-f;	
+	p[g].receberP=e-f;
+	p[g].cod = g;	
 	}
 
 /*void ordena(Item *A, Indice *n)  
@@ -81,6 +82,7 @@ no *busca(arvore r, string k){
     else
         return busca(r->dir,k);
 }
+
 void erd(arvore r){
     if(r!=NULL){
         erd(r->esq);
@@ -101,13 +103,25 @@ void busca_proj(arvore r,int h){
         busca_proj(r->dir,h);
     }
 }
-
+void buscar_cod (int codigo, int h){
+	for (int i=0;i<h;i++){
+	    if(codigo==p[i].cod){
+	        cout<<"Nome do Projeto: "<<p[i].nomeP<<endl;
+	        cout<<"Data de iniciacao do projeto: "<<p[i].dataInicialP;
+			cout<<"Data de filanizacao do projeto: "<<p[i].dataFinalP;
+			cout<<"Preco total do projeto: "<<p[i].precoP;
+			cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP;
+			cout<<"Preco a pagar pelo cliente: "<<p[i].receberP;
+		}
+	}
+	
+}
 
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,CPF,Som2=0,tel, cont=0;
-    string nome,ende,b,c,d;
+    int respMenu,CPF,Som2=0,tel, pt,pp,pcod;
+    string nome,ende,b,c,d,np, di , df;;
   	for (;;){
     	system ("cls");
     	cout<<" Digite o numero referente a acao escolhida \n 0.  Encerrar o Programa \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia ja paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
@@ -134,18 +148,17 @@ int main(){
       	    	 cout<<endl<<"Nao encontrado";
     		else{
 	       	 	cout<< "Digite o nome do Projeto\nUtilize Underline(EX:Nome_Complemento): ";
-		        cin >> c->proje.nomeP;
+		        cin >> np;
 		        cout<< "Digite a data inicial do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
-		        cin >> c->proje.dataInicialP;
+		        cin >> di;
 		        cout<< "Digite a data final do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
-		        cin >> c->proje.dataFinalP;
+		        cin >> df;
 				cout<< "Digite o preco do projeto: ";
-		        cin >> c->proje.precoP;
+		        cin >> pt;
 				cout<< "Digite valor ja pago do projeto: ";
-		        cin >> c->proje.pagoP;
-				c->proje.receberP= c->proje.precoP - c->proje.pagoP;
-		        cout<< "Projeto cadastrado com sucesso!! ";
-		        salva(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP,cont);
+		        cin >> pp;
+		        cout<< "Projeto cadastrado com sucesso!! "<<endl<< "O codigo do projeto é: "<<cont+1;
+		        salva(b,np,di,df,pt,pp,cont);
 		        cont++;
 		        system("pause"); 
      		} 	
@@ -174,7 +187,7 @@ int main(){
 			cout<<"Ele precisa pagar a quantia de: ";
 			for (int i=0; i<30;i++){
 		       	if( c== p[i].Pessoa ){
-	      	    	 cout<<p[i].receberP<<" "<<endl;
+	      	    	 cout<<p[i].receberP<<" + ";
 	    		 	}
 			}
 			system("pause");
@@ -187,13 +200,15 @@ int main(){
 			cout<<"Ele ja pagou a quantia de: ";
 			for (int i=0; i<30;i++){
 		       	if(d==p[i].Pessoa){
-	      	    	 cout<<p[i].pagoP<<" "<<endl;
+	      	    	 cout<<p[i].pagoP<<" + ";
 	    		 	}
 			}
 			system("pause");
 		}
 		if (respMenu==8){
-
+			cout<<"Digite o codigo do projeto: ";
+			cin>>pcod;
+			buscar_cod(pcod,cont);
 			system("pause");
 			
 		}
@@ -227,12 +242,13 @@ int main(){
 		}*/
 		
 		if (respMenu==12){
-			cout<< "Lista de devedores";
+			cout<< "Lista de devedores:"<<endl;
 			for (int i=0;i<30;i++){
 				if(p[i].receberP!=0){
 					cout<<p[i].Pessoa<<endl;
 				}
 			}
+			system("pause");
 		}
 	    if (respMenu==0){
 	        break;
