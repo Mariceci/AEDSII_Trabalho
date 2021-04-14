@@ -44,17 +44,16 @@ void inserir (arvore &r, string Nome , int Tel, string end){
    }
 }
 
-void salva (string a,string b,string c,string d,int e,int f){
-	for(int i=0;i<30;i++){
-		if(cont!=0){
-			p[cont].Pessoa=a;
-			p[cont].nomeP=b;
-			p[cont].dataInicialP=c;
-			p[cont].dataFinalP=d;
-			p[cont].precoP=e;
-			p[cont].pagoP=f;
-			p[cont].receberP=e-f;
-			cont++;
+void salva (string a,string b,string c,string d,int e,int f,int g){
+	for(int i=0;i<1;i++){
+		if(g!=0){
+			p[g].Pessoa=a;
+			p[g].nomeP=b;
+			p[g].dataInicialP=c;
+			p[g].dataFinalP=d;
+			p[g].precoP=e;
+			p[g].pagoP=f;
+			p[g].receberP=e-f;
 		}
 		else{
 			p[i].Pessoa=a;
@@ -64,7 +63,6 @@ void salva (string a,string b,string c,string d,int e,int f){
 			p[i].precoP=e;
 			p[i].pagoP=f;
 			p[i].receberP=e-f;
-			cont++;
 		}	
 	}
 }
@@ -106,7 +104,7 @@ void erd(arvore r){
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,Som2=0,tel;
+    int respMenu,CPF,Som2=0,tel, cont=0;
     string nome,ende,b,c,d;
   	for (;;){
     	system ("cls");
@@ -115,6 +113,8 @@ int main(){
     	if (respMenu==1){
 	    	cout<< "Digite o nome do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
 	        cin >> nome;
+	        cout<< "Digite o CPF do cliente: ";
+	        cin>> CPF;
 	        cout<< "Digite o endereco do cliente\nUtilize Underline(EX:Bairro_Rua): ";
 	        cin >> ende;
 	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
@@ -143,7 +143,8 @@ int main(){
 		        cin >> c->proje.pagoP;
 				c->proje.receberP= c->proje.precoP - c->proje.pagoP;
 		        cout<< "Projeto cadastrado com sucesso!! ";
-		        salva(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP);
+		        salva(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP,cont);
+		        cont++;
 		        system("pause"); 
      		} 	
 		}
