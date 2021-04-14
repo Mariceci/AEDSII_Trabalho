@@ -15,6 +15,7 @@ struct Projeto{
 struct Cliente {
 	string nome;
 	string endereco;
+	int CPF;
 	int telefone;
 	Projeto proje;
 	struct Cliente *esq;
@@ -25,10 +26,11 @@ typedef struct Cliente no;
 typedef no *arvore;
 int cont=0;
 
-void inserir (arvore &r, string Nome , int Tel, string end){
+void inserir (arvore &r, string Nome ,int cpf, int Tel, string end){
     if(r==NULL){
 	r = new no;
 	r->nome = Nome;
+	r->CPF = cpf;
 	r->telefone = Tel;
 	r->endereco = end;
 	r->esq = NULL;
@@ -36,10 +38,10 @@ void inserir (arvore &r, string Nome , int Tel, string end){
    } 
    else {
 		if(Nome< r->nome) {
-			inserir(r->esq,Nome,Tel,end);
+			inserir(r->esq,Nome,cpf,Tel,end);
 		}
 		else {
-		   inserir(r->dir,Nome,Tel,end);
+		   inserir(r->dir,Nome,cpf,Tel,end);
 		}
    }
 }
@@ -108,7 +110,7 @@ int main(){
     string nome,ende,b,c,d;
   	for (;;){
     	system ("cls");
-    	cout<<" Digite o numero referente a acao escolhida \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia ja paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
+    	cout<<" Digite o numero referente a acao escolhida \n 0.  Encerrar o Programa \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia ja paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
     	cin >>respMenu;
     	if (respMenu==1){
 	    	cout<< "Digite o nome do cliente\nUtilize Underline(EX:Nome_Sobrenome): ";
@@ -120,7 +122,7 @@ int main(){
 	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
 	        cin >> tel;
 	        cout<< "Cliente cadastrado com sucesso!! ";
-	        inserir (r,nome,tel,ende);	        
+	        inserir (r,nome,CPF,tel,ende);	        
 	        system("pause");
     	}
    		if (respMenu==2){
