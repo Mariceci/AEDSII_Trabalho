@@ -47,27 +47,14 @@ void inserir (arvore &r, string Nome ,int cpf, int Tel, string end){
 }
 
 void salva (string a,string b,string c,string d,int e,int f,int g){
-	for(int i=0;i<1;i++){
-		if(g!=0){
-			p[g].Pessoa=a;
-			p[g].nomeP=b;
-			p[g].dataInicialP=c;
-			p[g].dataFinalP=d;
-			p[g].precoP=e;
-			p[g].pagoP=f;
-			p[g].receberP=e-f;
-		}
-		else{
-			p[i].Pessoa=a;
-			p[i].nomeP=b;
-			p[i].dataInicialP=c;
-			p[i].dataFinalP=d;
-			p[i].precoP=e;
-			p[i].pagoP=f;
-			p[i].receberP=e-f;
-		}	
+	p[g].Pessoa=a;
+	p[g].nomeP=b;
+	p[g].dataInicialP=c;
+	p[g].dataFinalP=d;
+	p[g].precoP=e;
+	p[g].pagoP=f;
+	p[g].receberP=e-f;	
 	}
-}
 
 /*void ordena(Item *A, Indice *n)  
 { Indice i, j, Min;
@@ -99,6 +86,27 @@ void erd(arvore r){
         erd(r->esq);
         cout <<r->nome<<endl;
         erd(r->dir);
+    }
+}
+/*void erd2(arvore r){
+    if(r!=NULL){
+    	for(int i=0;i<r->proje.Projeto.size();i++){
+	        erd2(r->esq);
+	        cout <<r->proje.nomeP<<endl;
+	        erd2(r->dir);
+			}
+    }
+}*/
+void busca_proj(arvore r,int h){
+    if(r!=NULL){
+        busca_proj(r->esq,h);
+        cout <<r->nome<<endl;
+        arvore c=busca(r,r->nome);
+        for (int i=0;i<h;i++){
+	        if(c->nome==p[i].Pessoa){
+	        	cout<<"Projetos de "<<p[i].nomeP<<endl;
+		}}
+        busca_proj(r->dir,h);
     }
 }
 
@@ -157,16 +165,13 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
-			for(int i=0;i<30;i++){
+			for(int i=0;i<cont;i++){
 				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
 			}
 			system("pause");		
 		}
 		if (respMenu==5){
-			for(int i=0;i<30;i++){ // testar
-				erd(r); // testar
-				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
-			}	
+			busca_proj(r,cont);	
 			system("pause");
 		}
 		if (respMenu==6){
@@ -176,7 +181,7 @@ int main(){
 			cin >> c;
 			cout<<"Ele precisa pagar a quantia de: ";
 			for (int i=0; i<30;i++){
-		       	if( c== p[i].nomeP ){
+		       	if( r->nome== p[i].Pessoa ){
 	      	    	 cout<<p[i].receberP<<" "<<endl;
 	    		 	}
 			}
@@ -187,15 +192,18 @@ int main(){
 			erd(r);
 			cout << "Digite o nome do cliente que voce quer saber quanto ele ja pagou:"<<endl;
 			cin >> d;
-			cout<<"Ele ja pagau a quantia de: ";
+			cout<<"Ele ja pagou a quantia de: ";
 			for (int i=0; i<30;i++){
-		       	if(d ==p[i].nomeP){
+		       	if(r->nome ==p[i].Pessoa){
 	      	    	 cout<<p[i].pagoP<<" "<<endl;
 	    		 	}
 			}
 			system("pause");
 		}
 		if (respMenu==8){
+			cout<<"Lista de Projetos"<<endl;
+		//	erd2(r);
+			system("pause");
 			
 		}
 		if (respMenu==9){
