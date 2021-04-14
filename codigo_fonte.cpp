@@ -193,8 +193,7 @@ int main(){
 			system("pause");
 		}
 		if (respMenu==8){
-			cout<<"Lista de Projetos"<<endl;
-		//	erd2(r);
+
 			system("pause");
 			
 		}
