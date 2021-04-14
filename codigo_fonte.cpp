@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdio.h>
+#include <vector>
 using namespace std;
 
 struct Projeto{
@@ -22,6 +23,7 @@ struct Cliente {
 Projeto p[30];
 typedef struct Cliente no;
 typedef no *arvore;
+int cont=0;
 
 void inserir (arvore &r, string Nome , int Tel, string end){
     if(r==NULL){
@@ -42,30 +44,47 @@ void inserir (arvore &r, string Nome , int Tel, string end){
    }
 }
 
-void salvarlista(struct a,struct b,struct c,struct d,int e,int f){
-	int cont=0
+void salva (string a,string b,string c,string d,int e,int f){
 	for(int i=0;i<30;i++){
-		if (cont!=0){
-			p[cont].Pessoa = a;
-			p[cont].nomeP = b;
-			p[cont].dataInicialP = c;
-			p[cont].dataFinalP = d;
-			p[cont].precoP = e;
-			p[cont].pagoP = f;
-			p[cont].receberP = e-f;
+		if(cont!=0){
+			p[cont].Pessoa=a;
+			p[cont].nomeP=b;
+			p[cont].dataInicialP=c;
+			p[cont].dataFinalP=d;
+			p[cont].precoP=e;
+			p[cont].pagoP=f;
+			p[cont].receberP=e-f;
 			cont++;
 		}
-		else {
-			p[i].Pessoa = a;
-			p[i].nomeP = b;
-			p[i].dataInicialP = c;
-			p[i].dataFinalP = d;
-			p[i].precoP = e;
-			p[i].pagoP = f;
-			p[i].receberP = e-f;
-		}
+		else{
+			p[i].Pessoa=a;
+			p[i].nomeP=b;
+			p[i].dataInicialP=c;
+			p[i].dataFinalP=d;
+			p[i].precoP=e;
+			p[i].pagoP=f;
+			p[i].receberP=e-f;
+			cont++;
+		}	
 	}
 }
+
+/*void ordena(Item *A, Indice *n)  
+{ Indice i, j, Min;
+  Item aux;
+  for (i = 1; i <= *n - 1; i++) {
+  	Min = i;
+    	for (j = i + 1; j <= *n; j++){
+          	if (p[j].nomeP < p[Min].nomeP){
+            	Min = j;
+            	cont ++;
+            }
+        }
+      	aux = p[Min]; 
+      	p[Min] = p[i]; 
+      	p[i] = aux;
+    }
+}*/
 
 no *busca(arvore r, string k){
     if(r==NULL ||r->nome==k)
@@ -82,7 +101,6 @@ void erd(arvore r){
         erd(r->dir);
     }
 }
-
 
 
 int main(){
@@ -125,7 +143,7 @@ int main(){
 		        cin >> c->proje.pagoP;
 				c->proje.receberP= c->proje.precoP - c->proje.pagoP;
 		        cout<< "Projeto cadastrado com sucesso!! ";
-		        salvarlista(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP)
+		        salva(b,c->proje.nomeP,c->proje.dataInicialP,c->proje.dataFinalP,c->proje.precoP,c->proje.pagoP);
 		        system("pause"); 
      		} 	
 		}
@@ -146,9 +164,11 @@ int main(){
 				erd(r); // testar
 				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
 			}	
-		
+			system("pause");
 		}
 		if (respMenu==6){
+			cout<<"Lista de Clientes"<<endl;
+			erd(r);
 			cout << "Digite o nome do cliente que voce quer saber quanto ele tem a pagar:"<<endl;
 			cin >> c;
 			cout<<"Ele precisa pagar a quantia de: ";
@@ -160,6 +180,8 @@ int main(){
 			system("pause");
 		}
 		if (respMenu==7){
+			cout<<"Lista de Clientes"<<endl;
+			erd(r);
 			cout << "Digite o nome do cliente que voce quer saber quanto ele ja pagou:"<<endl;
 			cin >> d;
 			cout<<"Ele ja pagau a quantia de: ";
@@ -176,8 +198,8 @@ int main(){
 		if (respMenu==9){
 			
 		}
-		if (respMenu==10){
-/*			string comparaNomeP;
+	/*if (respMenu==10){
+			string comparaNomeP;
 			cout << "Digite o nome do projeto que voce quer remover:"<<endl;
 			cin >> comparaNomeP;
 			for (int i=0; i<30;i++){
@@ -187,22 +209,21 @@ int main(){
 			}
 			system("pause");
 			
-			*/
+			
 		}
 		if (respMenu==11){
 			string comparaNome;
 			cout << "Digite o nome do cliente que voce quer remover:"<<endl; // testar
 			cin >> comparaNome; // testar
 			for (int i=0; i<30;i++){ // testar
-		       	if( p[i].nome== comparaNome ){ // testar
-	      	    	delete p[i].nome; // testar
+		       	if( p[i].Pessoa== comparaNome ){ // testar
+	      	    	 p.remove(p.begin()+i) ; // testar
 	      			cout<<"Cliente removido!"<<endl; // testar
 	    		 	}
 			}
-			system("pause");
-			
-
-		}
+			system("pause"); 	
+		}*/
+		
 		if (respMenu==12){
 			//if(receberP!=0){
 				//cout<< //Clientes
