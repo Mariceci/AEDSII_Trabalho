@@ -225,10 +225,12 @@ int main(){
 		}*/
 		
 		if (respMenu==12){
-			//if(receberP!=0){
-				//cout<< //Clientes
-			//}
-			
+			cout<< "Lista de devedores";
+			for (int i=0;i<30;i++){
+				if(p[i].receberP!=0){
+					cout<<p[i].Pessoa<<endl;
+				}
+			}
 		}
 	    if (respMenu==0){
 	        break;
