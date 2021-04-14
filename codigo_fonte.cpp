@@ -88,23 +88,15 @@ void erd(arvore r){
         erd(r->dir);
     }
 }
-/*void erd2(arvore r){
-    if(r!=NULL){
-    	for(int i=0;i<r->proje.Projeto.size();i++){
-	        erd2(r->esq);
-	        cout <<r->proje.nomeP<<endl;
-	        erd2(r->dir);
-			}
-    }
-}*/
+
 void busca_proj(arvore r,int h){
     if(r!=NULL){
         busca_proj(r->esq,h);
-        cout <<r->nome<<endl;
+        cout <<r->nome<<endl<<"Projetos:"<<endl;;
         arvore c=busca(r,r->nome);
         for (int i=0;i<h;i++){
 	        if(c->nome==p[i].Pessoa){
-	        	cout<<"Projetos de "<<p[i].nomeP<<endl;
+	        	cout<<p[i].nomeP<<endl;
 		}}
         busca_proj(r->dir,h);
     }
@@ -181,7 +173,7 @@ int main(){
 			cin >> c;
 			cout<<"Ele precisa pagar a quantia de: ";
 			for (int i=0; i<30;i++){
-		       	if( r->nome== p[i].Pessoa ){
+		       	if( c== p[i].Pessoa ){
 	      	    	 cout<<p[i].receberP<<" "<<endl;
 	    		 	}
 			}
@@ -194,7 +186,7 @@ int main(){
 			cin >> d;
 			cout<<"Ele ja pagou a quantia de: ";
 			for (int i=0; i<30;i++){
-		       	if(r->nome ==p[i].Pessoa){
+		       	if(d==p[i].Pessoa){
 	      	    	 cout<<p[i].pagoP<<" "<<endl;
 	    		 	}
 			}
