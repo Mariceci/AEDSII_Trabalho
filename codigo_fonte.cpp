@@ -16,8 +16,8 @@ struct Projeto{
 struct Cliente {
 	string nome;
 	string endereco;
-	int CPF;
-	int telefone;
+	double CPF;
+	double telefone;
 	int codi;
 	struct Cliente *esq;
     struct Cliente *dir;
@@ -27,7 +27,7 @@ typedef struct Cliente no;
 typedef no *arvore;
 int cont=0, contA =0;
 
-void inserir (arvore &r, string Nome ,int cpf, int Tel, string end,int codigo){
+void inserir (arvore &r, string Nome ,double cpf, double Tel, string end,int codigo){
     if(r==NULL){
 	r = new no;
 	r->nome = Nome;
@@ -130,8 +130,9 @@ no *buscar_codC(arvore r, int codigo){
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,CPF,Som2=0,tel, pt,pp,pcod,codC;
-    string nome,ende,b,c,d,np, di , df;;
+    int respMenu,Som2=0,pt,pp,pcod,codC;
+    string nome,ende,b,c,d,np, di , df;
+    double CPF,tel;
   	for (;;){
     	system ("cls");
     	cout<<" Digite o numero referente a acao escolhida \n 0.  Encerrar o Programa \n 1.  Incluir um novo cliente na lista \n 2.  Incluir um novo projeto a um cliente \n 3.  Lista dos clientes \n 4.  Lista dos projetos \n 5.  Lista dos clientes com seus respectivos projetos \n 6.  Quantia a pagar por um cliente \n 7.  Quantia ja paga por um cliente \n 8.  Pesquisar o projeto pelo codigo \n 9.  Pesquisar o cliente pelo codigo  \n 10. Remover um projeto de um cliente  \n 11. Remover um cliente \n 12. Ver lista de devedores"<<endl<<"-> ";
@@ -145,7 +146,7 @@ int main(){
 	        cin >> ende;
 	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
 	        cin >> tel;
-	        cout<< "Cliente cadastrado com sucesso!! O codigo desse cliente é : "<<contA <<"  ";
+	        cout<< "Cliente cadastrado com sucesso!! \nO codigo desse cliente é : "<<contA <<"  ";
 	        inserir (r,nome,CPF,tel,ende,contA);
 			contA++;	        
 	        system("pause");
@@ -160,15 +161,15 @@ int main(){
     		else{
 	       	 	cout<< "Digite o nome do Projeto\nUtilize Underline(EX:Nome_Complemento): ";
 		        cin >> np;
-		        cout<< "Digite a data inicial do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
+		        cout<< "Digite a data inicial do projeto\n(EX:01/01/2021: ";
 		        cin >> di;
-		        cout<< "Digite a data final do projeto\nUtilize Underline(EX:Setembro_14_2021): ";
+		        cout<< "Digite a data final do projeto\n(EX:01/01/2021): ";
 		        cin >> df;
-				cout<< "Digite o preco do projeto: ";
+				cout<< "Digite o preco do projeto \nUtilize ponto para centavos(EX: 11.11): ";
 		        cin >> pt;
-				cout<< "Digite valor ja pago do projeto: ";
-		        cin >> pp;
-		        cout<< "Projeto cadastrado com sucesso!! "<<endl<< "O codigo do projeto é: "<<cont<<"  ";
+				cout<< "Digite valor ja pago do projeto \nUtilize ponto para centavos(EX: 11.11): ";
+		        cin >> pp; 
+		        cout<< "Projeto cadastrado com sucesso!! "<<endl<< "O codigo desse projeto é: "<<cont<<"  ";
 		        salva(b,np,di,df,pt,pp,cont);
 		        cont++;
 		        system("pause"); 
