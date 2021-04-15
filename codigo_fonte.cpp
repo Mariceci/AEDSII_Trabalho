@@ -25,7 +25,7 @@ struct Cliente {
 Projeto p[30];
 typedef struct Cliente no;
 typedef no *arvore;
-int cont=0, contA =0;
+int cont=0;
 
 void inserir (arvore &r, string Nome ,double cpf, double Tel, string end,int codigo){
     if(r==NULL){
@@ -130,7 +130,7 @@ no *buscar_codC(arvore r, int codigo){
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,Som2=0,pt,pp,pcod,codC;
+    int respMenu,Som2=0,pt,pp,pcod,codC, contA=0;
     string nome,ende,b,c,d,np, di , df;
     double CPF,tel;
   	for (;;){
@@ -244,6 +244,7 @@ int main(){
 			}
 			system("pause");
 		}
+		
 	/*if (respMenu==10){
 			string comparaNomeP;
 			cout << "Digite o nome do projeto que voce quer remover:"<<endl;
@@ -270,10 +271,17 @@ int main(){
 		}*/
 		
 		if (respMenu==12){
+			string parametro;
 			cout<< "Lista de devedores:"<<endl;
-			for (int i=0;i<30;i++){
+			for (int i=0;i<cont;i++){
 				if(p[i].receberP!=0){
-					cout<<p[i].Pessoa<<endl;
+					cout<<p[i].Pessoa<<endl<<"--Projeto(s)--"<<endl;
+					p[i].Pessoa=parametro;
+					for(int i=0;i<cont;i++){
+						if (p[i].Pessoa==parametro){
+							cout<<p[i].nomeP<<endl;
+						}
+					}
 				}
 			}
 			system("pause");
