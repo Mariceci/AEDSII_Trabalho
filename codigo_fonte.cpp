@@ -238,6 +238,7 @@ int main(){
 						cout<<"Preco total do projeto: "<<p[i].precoP<<endl;
 						cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP<<endl;
 						cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
+						cout<<"O codigo do projeto é: "<<p[i].cod<<endl;
 	    		 	}
 			}
 			system("pause");
