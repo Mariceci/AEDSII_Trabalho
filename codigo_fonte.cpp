@@ -18,30 +18,32 @@ struct Cliente {
 	string endereco;
 	int CPF;
 	int telefone;
+	int codi;
 	struct Cliente *esq;
     struct Cliente *dir;
 };
 Projeto p[30];
 typedef struct Cliente no;
 typedef no *arvore;
-int cont=0;
+int cont=0, contA =0;
 
-void inserir (arvore &r, string Nome ,int cpf, int Tel, string end){
+void inserir (arvore &r, string Nome ,int cpf, int Tel, string end,int codigo){
     if(r==NULL){
 	r = new no;
 	r->nome = Nome;
 	r->CPF = cpf;
 	r->telefone = Tel;
 	r->endereco = end;
+	r->codi = codigo;
 	r->esq = NULL;
 	r->dir = NULL;
    } 
    else {
 		if(Nome< r->nome) {
-			inserir(r->esq,Nome,cpf,Tel,end);
+			inserir(r->esq,Nome,cpf,Tel,end,codigo);
 		}
 		else {
-		   inserir(r->dir,Nome,cpf,Tel,end);
+		   inserir(r->dir,Nome,cpf,Tel,end,codigo);
 		}
    }
 }
@@ -103,7 +105,8 @@ void busca_proj(arvore r,int h){
         busca_proj(r->dir,h);
     }
 }
-void buscar_cod (int codigo, int h){
+
+void buscar_codP (int codigo, int h){
 	for (int i=0;i<h;i++){
 	    if(codigo==p[i].cod){
 	        cout<<"Nome do Projeto: "<<p[i].nomeP<<endl;
@@ -117,10 +120,19 @@ void buscar_cod (int codigo, int h){
 	
 }
 
+no *buscar_codC(arvore r, int codigo){
+	 if(r==NULL ||r->codi==codigo)
+        return r;
+    if(r->codi>codigo)
+        return buscar_codC(r->esq,codigo);
+    else
+        return buscar_codC(r->dir,codigo);
+}
+
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,CPF,Som2=0,tel, pt,pp,pcod;
+    int respMenu,CPF,Som2=0,tel, pt,pp,pcod,codC;
     string nome,ende,b,c,d,np, di , df;;
   	for (;;){
     	system ("cls");
@@ -135,8 +147,9 @@ int main(){
 	        cin >> ende;
 	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
 	        cin >> tel;
-	        cout<< "Cliente cadastrado com sucesso!! ";
-	        inserir (r,nome,CPF,tel,ende);	        
+	        cout<< "Cliente cadastrado com sucesso!! O codigo desse cliente é : "<<contA <<"  ";
+	        inserir (r,nome,CPF,tel,ende,contA);
+			contA++;	        
 	        system("pause");
     	}
    		if (respMenu==2){
@@ -157,7 +170,7 @@ int main(){
 		        cin >> pt;
 				cout<< "Digite valor ja pago do projeto: ";
 		        cin >> pp;
-		        cout<< "Projeto cadastrado com sucesso!! "<<endl<< "O codigo do projeto é: "<<cont+1;
+		        cout<< "Projeto cadastrado com sucesso!! "<<endl<< "O codigo do projeto é: "<<cont<<"  ";
 		        salva(b,np,di,df,pt,pp,cont);
 		        cont++;
 		        system("pause"); 
@@ -176,6 +189,7 @@ int main(){
 			system("pause");		
 		}
 		if (respMenu==5){
+			"Cliente e sesus respectivos projetos: ";
 			busca_proj(r,cont);	
 			system("pause");
 		}
@@ -208,12 +222,16 @@ int main(){
 		if (respMenu==8){
 			cout<<"Digite o codigo do projeto: ";
 			cin>>pcod;
-			buscar_cod(pcod,cont);
+			buscar_codP(pcod,cont);
 			system("pause");
 			
 		}
 		if (respMenu==9){
-			
+			cout<< "Digite o codigo do cliente : ";
+			cin>>codC;
+			buscar_codC(r,codC);
+			cout<< r->nome;
+			system("pause");
 		}
 	/*if (respMenu==10){
 			string comparaNomeP;
