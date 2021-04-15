@@ -59,22 +59,18 @@ void salva (string a,string b,string c,string d,int e,int f,int g){
 	p[g].cod = g;	
 	}
 
-/*void ordena(Item *A, Indice *n)  
-{ Indice i, j, Min;
-  Item aux;
-  for (i = 1; i <= *n - 1; i++) {
-  	Min = i;
-    	for (j = i + 1; j <= *n; j++){
-          	if (p[j].nomeP < p[Min].nomeP){
-            	Min = j;
-            	cont ++;
+void ordena(int contagem){
+ int menor,j;
+  for (int i = 1; i <contagem; i++) {
+	menor = i;
+    for (j = i + 1; j <contagem; j++){
+        if (p[j].nomeP < p[menor].nomeP){
+            	menor = j;
             }
         }
-      	aux = p[Min]; 
-      	p[Min] = p[i]; 
-      	p[i] = aux;
+        swap (p[j],p[menor]);
     }
-}*/
+}
 
 no *busca(arvore r, string k){
     if(r==NULL ||r->nome==k)
@@ -106,19 +102,21 @@ void busca_proj(arvore r,int h){
     }
 }
 
-void buscar_codP (int codigo, int h){
+void buscar_codP (int codigo, int h, arvore r ){
 	for (int i=0;i<h;i++){
 	    if(codigo==p[i].cod){
 	        cout<<"Nome do Projeto: "<<p[i].nomeP<<endl;
-	        cout<<"Data de iniciacao do projeto: "<<p[i].dataInicialP;
-			cout<<"Data de filanizacao do projeto: "<<p[i].dataFinalP;
-			cout<<"Preco total do projeto: "<<p[i].precoP;
-			cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP;
-			cout<<"Preco a pagar pelo cliente: "<<p[i].receberP;
+	        cout<<"Data de iniciacao do projeto: "<<p[i].dataInicialP<<endl;
+			cout<<"Data de filanizacao do projeto: "<<p[i].dataFinalP<<endl;
+			cout<<"Preco total do projeto: "<<p[i].precoP<<endl;
+			cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP<<endl;
+			cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
 		}
+		if(r==NULL ||r->codi==codigo)
+        	cout<<"Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente é: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone;
+    	}
 	}
-	
-}
+
 
 no *buscar_codC(arvore r, int codigo){
 	 if(r==NULL ||r->codi==codigo)
@@ -183,8 +181,9 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
+			ordena(cont);
 			for(int i=0;i<cont;i++){
-				cout<<p[i].nomeP << endl; //Tem q colocar eles organizados em ordem alfabetica ai vc usa o metodos de ordenação
+				cout<<p[i].nomeP << endl; 
 			}
 			system("pause");		
 		}
@@ -222,7 +221,7 @@ int main(){
 		if (respMenu==8){
 			cout<<"Digite o codigo do projeto: ";
 			cin>>pcod;
-			buscar_codP(pcod,cont);
+			buscar_codP(pcod,cont,r);
 			system("pause");
 			
 		}
@@ -230,7 +229,17 @@ int main(){
 			cout<< "Digite o codigo do cliente : ";
 			cin>>codC;
 			buscar_codC(r,codC);
-			cout<< r->nome;
+			cout<< "Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente é: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone<<endl;
+			for (int i=0; i<30;i++){
+		       	if(r->nome==p[i].Pessoa){
+	      	    		cout<<"Nome do Projeto: "<<p[i].nomeP<<endl;
+				        cout<<"Data de iniciacao do projeto: "<<p[i].dataInicialP<<endl;
+						cout<<"Data de filanizacao do projeto: "<<p[i].dataFinalP<<endl;
+						cout<<"Preco total do projeto: "<<p[i].precoP<<endl;
+						cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP<<endl;
+						cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
+	    		 	}
+			}
 			system("pause");
 		}
 	/*if (respMenu==10){
@@ -242,10 +251,9 @@ int main(){
 	      	    	remove_p[i].nomeP;
 	    		 	}
 			}
-			system("pause");
-			
-			
+			system("pause");	
 		}
+		
 		if (respMenu==11){
 			string comparaNome;
 			cout << "Digite o nome do cliente que voce quer remover:"<<endl; // testar
