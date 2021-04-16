@@ -61,14 +61,24 @@ void salva (string a,string b,string c,string d,int e,int f,int g){
 
 void ordena(int contagem){
  int menor,j;
+ string temp;
   for (int i = 1; i <contagem; i++) {
 	menor = i;
-    for (j = i + 1; j <contagem; j++){
-        if (p[j].nomeP < p[menor].nomeP){
-            	menor = j;
-            }
-        }
-        swap (p[j],p[menor]);
+	for (j = i + 1; j <contagem; j++){
+	   if (p[j].nomeP < p[menor].nomeP){
+	        menor = j;
+	        }
+	    }
+	    cout<< temp<<endl;
+	    cout<< p[j].nomeP<<endl;
+	    cout<< p[menor].nomeP<<endl;
+	    temp = p[j].nomeP;
+	    p[j].nomeP=p[menor].nomeP;
+	    p[menor].nomeP=temp;
+	    cout<< "teste"<<endl;
+		cout<< temp<<endl;
+	    cout<< p[j].nomeP<<endl;
+	    cout<< p[menor].nomeP<<endl;
     }
 }
 
@@ -112,7 +122,7 @@ void buscar_codP (int codigo, int h, arvore r ){
 			cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP<<endl;
 			cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
 		}
-		if(r==NULL ||r->codi==codigo)
+		if(r->codi==codigo)
         	cout<<"Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente é: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone;
     	}
 	}
@@ -276,7 +286,7 @@ int main(){
 			for (int i=0;i<cont;i++){
 				if(p[i].receberP!=0){
 					cout<<p[i].Pessoa<<endl<<"--Projeto(s)--"<<endl;
-					p[i].Pessoa=parametro;
+					parametro=p[i].Pessoa;
 					for(int i=0;i<cont;i++){
 						if (p[i].Pessoa==parametro){
 							cout<<p[i].nomeP<<endl;
