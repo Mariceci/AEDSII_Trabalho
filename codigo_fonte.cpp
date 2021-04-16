@@ -123,7 +123,7 @@ void buscar_codP (int codigo, int h, arvore r ){
 			cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
 		}
 		if(r->codi==codigo)
-        	cout<<"Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente é: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone;
+        	cout<<"Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente e: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone;
     	}
 	}
 
@@ -154,9 +154,9 @@ int main(){
 	        cin>> CPF;
 	        cout<< "Digite o endereco do cliente\nUtilize Underline(EX:Bairro_Rua): ";
 	        cin >> ende;
-	        cout<< "Digite o telefone do cliente \nNão ultilize qualquer tipo de separação (EX: 00123456789: ";
+	        cout<< "Digite o telefone do cliente \nNao ultilize qualquer tipo de separacaoo (EX: 00123456789): ";
 	        cin >> tel;
-	        cout<< "Cliente cadastrado com sucesso!! \nO codigo desse cliente é : "<<contA <<"  ";
+	        cout<< "Cliente cadastrado com sucesso!! \nO codigo desse cliente e : "<<contA <<"  ";
 	        inserir (r,nome,CPF,tel,ende,contA);
 			contA++;	        
 	        system("pause");
@@ -240,7 +240,7 @@ int main(){
 			cout<< "Digite o codigo do cliente : ";
 			cin>>codC;
 			buscar_codC(r,codC);
-			cout<< "Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente é: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone<<endl;
+			cout<< "Nome do cliente: "<<r->nome<<endl<<"O CPF desse cliente e: "<<r->CPF<<endl<<"O endereco: "<<r->endereco<<endl<<"Telefone: "<<r->telefone<<endl;
 			for (int i=0; i<30;i++){
 		       	if(r->nome==p[i].Pessoa){
 	      	    		cout<<"Nome do Projeto: "<<p[i].nomeP<<endl;
@@ -249,7 +249,7 @@ int main(){
 						cout<<"Preco total do projeto: "<<p[i].precoP<<endl;
 						cout<<"Preco ja pago pelo cliente: "<<p[i].pagoP<<endl;
 						cout<<"Preco a pagar pelo cliente: "<<p[i].receberP<<endl;
-						cout<<"O codigo do projeto é: "<<p[i].cod<<endl;
+						cout<<"O codigo do projeto e: "<<p[i].cod<<endl;
 	    		 	}
 			}
 			system("pause");
