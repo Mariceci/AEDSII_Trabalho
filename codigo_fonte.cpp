@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-#include <vector>
+
 using namespace std;
 
 struct Projeto{
@@ -192,7 +192,7 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
-			ordena(cont);
+			//ordena(cont);
 			for(int i=0;i<cont;i++){
 				cout<<p[i].nomeP << endl; 
 			}
