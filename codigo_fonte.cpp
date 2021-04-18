@@ -25,7 +25,7 @@ struct Cliente {
 Projeto p[30];
 typedef struct Cliente no;
 typedef no *arvore;
-int cont=0;
+int cont=0,contA=0;
 
 void inserir (arvore &r, string Nome ,double cpf, double Tel, string end,int codigo){
     if(r==NULL){
@@ -140,7 +140,7 @@ no *buscar_codC(arvore r, int codigo){
 int main(){
 	arvore r;
 	r = NULL;
-    int respMenu,Som2=0,pt,pp,pcod,codC, contA=0;
+    int respMenu,Som2=0,pt,pp,pcod,codC ;
     string nome,ende,b,c,d,np, di , df;
     double CPF,tel;
   	for (;;){
@@ -158,7 +158,7 @@ int main(){
 	        cin >> tel;
 	        cout<< "Cliente cadastrado com sucesso!! \nO codigo desse cliente e : "<<contA <<"  ";
 	        inserir (r,nome,CPF,tel,ende,contA);
-			contA++;	        
+			contA+1;	        
 	        system("pause");
     	}
    		if (respMenu==2){
@@ -192,7 +192,7 @@ int main(){
 		}
 		if (respMenu==4){
 			cout<<"Lista de Projetos"<<endl;
-			//ordena(cont);
+			ordena(cont);
 			for(int i=0;i<cont;i++){
 				cout<<p[i].nomeP << endl; 
 			}
